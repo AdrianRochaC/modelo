@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request
 import google.generativeai as genai
 
-genai.configure(api_key="TU_API_KEY")  # Reemplaza con tu clave real
+genai.configure(api_key="AIzaSyBSUXegwhMAjxmyQIBETkb_82uxikL3OH0")  # Reemplaza con tu clave real
 
 model = genai.GenerativeModel('gemini-1.5-flash')
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder=".")  # <-- Aquí está el cambio
 
 def traducir_texto(texto, idioma_destino):
     if not texto or not idioma_destino:
@@ -29,3 +29,4 @@ def index():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
