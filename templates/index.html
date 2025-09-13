@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agente Traductor Web 🤖</title>
+    <style>
+        body {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-family: Helvetica, sans-serif;
+            padding: 40px;
+        }
+        textarea, input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #34495e;
+            color: #ecf0f1;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #3498db;
+            color: #ecf0f1;
+            padding: 10px 20px;
+            border: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Agente Traductor Web 🤖</h1>
+        <form method="POST">
+            <label for="texto">Texto a traducir:</label>
+            <textarea name="texto" rows="6" required></textarea>
+
+            <label for="idioma">Idioma destino (ej: es, en, fr, ko):</label>
+            <input type="text" name="idioma" required>
+
+            <button type="submit">Traducir</button>
+        </form>
+
+        {% if traduccion %}
+            <h2>Traducción:</h2>
+            <textarea rows="6" readonly>{{ traduccion }}</textarea>
+        {% endif %}
+    </div>
+</body>
+</html>
